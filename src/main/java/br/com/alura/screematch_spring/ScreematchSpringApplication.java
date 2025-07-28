@@ -1,5 +1,6 @@
 package br.com.alura.screematch_spring;
 
+import br.com.alura.screematch_spring.model.DadosEpisodio;
 import br.com.alura.screematch_spring.model.DadosSerie;
 import br.com.alura.screematch_spring.services.ConsumoApi;
 import br.com.alura.screematch_spring.services.ConverteDados;
@@ -24,6 +25,9 @@ public class ScreematchSpringApplication implements CommandLineRunner {
 		ConverteDados conversor = new ConverteDados();
 		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
 		System.out.println(dados);
+		json = consumoApi.obterDados("http://www.omdbapi.com/?t=The+Originals&season=1&episode=2&apikey=92dab9e4");
+		DadosEpisodio dadosEpisodio = conversor.obterDados(json, DadosEpisodio.class);
+		System.out.println(dadosEpisodio);
 
 	}
 }
