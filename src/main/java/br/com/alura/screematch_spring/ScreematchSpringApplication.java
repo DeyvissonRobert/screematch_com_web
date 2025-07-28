@@ -19,5 +19,6 @@ public class ScreematchSpringApplication implements CommandLineRunner {
 		System.out.println(json);
 //		json = consumoApi.obterDados("https://coffee.alexflipnote.dev/random.json"); //Imagem de Café
 //		System.out.println(json);
+
 	}
 }
