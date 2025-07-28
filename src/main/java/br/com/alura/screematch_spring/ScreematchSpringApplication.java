@@ -13,6 +13,6 @@ public class ScreematchSpringApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Primeiro projeto Spring sem Web!");
+		System.out.println("Primeiro projeto Spring sem Web! ");
 	}
 }
