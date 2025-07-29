@@ -3,6 +3,7 @@ package br.com.alura.screematch_spring.principal;
 import br.com.alura.screematch_spring.model.DadosEpisodio;
 import br.com.alura.screematch_spring.model.DadosSerie;
 import br.com.alura.screematch_spring.model.DadosTemporada;
+import br.com.alura.screematch_spring.model.Episodio;
 import br.com.alura.screematch_spring.services.ConsumoApi;
 import br.com.alura.screematch_spring.services.ConverteDados;
 
@@ -57,6 +58,14 @@ public class Principal {
                 .sorted(Comparator.comparing(DadosEpisodio::avaliacao).reversed())
                 .limit(5)
                 .forEach(System.out::println);
+
+        List<Episodio> episodios = temporadas.stream()
+                .flatMap(t -> t.episodios().stream()
+                        .map(d -> new Episodio(t.numero(), d))
+                ).collect(Collectors.toList());
+
+        episodios.forEach(System.out::println);
+
     }
 
 }
