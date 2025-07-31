@@ -2,12 +2,15 @@ package br.com.alura.screematch_spring.principal;
 
 import br.com.alura.screematch_spring.model.DadosSerie;
 import br.com.alura.screematch_spring.model.DadosTemporada;
+import br.com.alura.screematch_spring.model.Serie;
 import br.com.alura.screematch_spring.service.ConsumoApi;
 import br.com.alura.screematch_spring.service.ConverteDados;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Principal {
 
@@ -80,7 +83,13 @@ public class Principal {
         temporadas.forEach(System.out::println);
     }
 
-    private void listarSeriesBuscadas() {
-        dadosSeries.forEach(System.out::println);
+    private void listarSeriesBuscadas(){
+        List<Serie> series = new ArrayList<>();
+        series = dadosSeries.stream()
+                .map(d -> new Serie(d))
+                .collect(Collectors.toList());
+        series.stream()
+                .sorted(Comparator.comparing(Serie::getGenero))
+                .forEach(System.out::println);
     }
 }
