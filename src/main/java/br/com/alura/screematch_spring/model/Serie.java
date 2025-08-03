@@ -1,6 +1,6 @@
 package br.com.alura.screematch_spring.model;
 
-import br.com.alura.screematch_spring.service.tradução.ConsultaMyMemory;
+import br.com.alura.screematch_spring.service.traducao.ConsultaMyMemory;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

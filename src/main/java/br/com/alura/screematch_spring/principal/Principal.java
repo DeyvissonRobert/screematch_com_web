@@ -115,10 +115,10 @@ public class Principal {
     }
 
 
-        private void listarSeriesBuscadas() {
-            series = repositorio.findAll();
-            series.stream()
-                    .sorted(Comparator.comparing(Serie::getGenero))
-                    .forEach(System.out::println);
-        }
+    private void listarSeriesBuscadas() {
+        series = repositorio.findAll();
+        series.stream()
+                .sorted(Comparator.comparing(Serie::getGenero))
+                .forEach(System.out::println);
+    }
 }
