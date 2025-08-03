@@ -1,9 +1,10 @@
 package br.com.alura.screematch_spring.model;
 
-import br.com.alura.screematch_spring.service.tradução.ConsultaChatGPT;
 import br.com.alura.screematch_spring.service.tradução.ConsultaMyMemory;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.OptionalDouble;
 
 @Entity
@@ -22,12 +23,12 @@ public class Serie {
     private String poster;
     private String sinopse;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
+    @OneToMany(mappedBy = "serie")
+    private List<Episodio> episodios = new ArrayList<>();
+
+    public Serie() {
+
     }
 
     public Serie(DadosSerie dadosSerie){
@@ -40,6 +41,21 @@ public class Serie {
         this.sinopse = ConsultaMyMemory.obterTraducao(dadosSerie.sinopse()).trim();
     }
 
+    public List<Episodio> getEpisodios() {
+        return episodios;
+    }
+
+    public void setEpisodios(List<Episodio> episodios) {
+        this.episodios = episodios;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getSinopse() {
         return sinopse;
     }
