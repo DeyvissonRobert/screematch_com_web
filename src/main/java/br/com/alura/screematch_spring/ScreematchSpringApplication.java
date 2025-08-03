@@ -1,12 +1,16 @@
 package br.com.alura.screematch_spring;
 
 import br.com.alura.screematch_spring.principal.Principal;
+import br.com.alura.screematch_spring.repository.SerieRespository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ScreematchSpringApplication implements CommandLineRunner {
+	@Autowired
+	private SerieRespository repositorio;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ScreematchSpringApplication.class, args);
@@ -14,7 +18,7 @@ public class ScreematchSpringApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Principal principal = new Principal();
+		Principal principal = new Principal(repositorio);
 		principal.exibeMenu();
 	}
 }
