@@ -1,6 +1,7 @@
 package br.com.alura.screematch_spring.model;
 
-import br.com.alura.screematch_spring.service.ConsultaChatGPT;
+import br.com.alura.screematch_spring.service.tradução.ConsultaChatGPT;
+import br.com.alura.screematch_spring.service.tradução.ConsultaMyMemory;
 
 import java.util.OptionalDouble;
 
@@ -20,7 +21,7 @@ public class Serie {
         this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
         this.atores = dadosSerie.atores();
         this.poster = dadosSerie.poster();
-        this.sinopse = ConsultaChatGPT.obterTraducao(dadosSerie.sinopse()).trim();
+        this.sinopse = ConsultaMyMemory.obterTraducao(dadosSerie.sinopse()).trim();
     }
 
     public String getSinopse() {
