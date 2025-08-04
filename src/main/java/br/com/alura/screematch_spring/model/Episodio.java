@@ -9,6 +9,7 @@ import java.time.format.DateTimeParseException;
 @Entity
 @Table(name = "episodios")
 public class Episodio {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,7 +18,6 @@ public class Episodio {
     private Integer numeroEpisodio;
     private Double avaliacao;
     private LocalDate dataLancamento;
-
     @ManyToOne
     private Serie serie;
 
@@ -27,7 +27,6 @@ public class Episodio {
         this.temporada = numeroTemporada;
         this.titulo = dadosEpisodio.titulo();
         this.numeroEpisodio = dadosEpisodio.numero();
-
 
         try {
             this.avaliacao = Double.valueOf(dadosEpisodio.avaliacao());
@@ -104,7 +103,6 @@ public class Episodio {
                 ", titulo='" + titulo + '\'' +
                 ", numeroEpisodio=" + numeroEpisodio +
                 ", avaliacao=" + avaliacao +
-                ", dataLancamento=" + dataLancamento;
+                ", dataLancamento=" + dataLancamento ;
     }
-
 }

@@ -4,7 +4,7 @@ import br.com.alura.screematch_spring.model.DadosSerie;
 import br.com.alura.screematch_spring.model.DadosTemporada;
 import br.com.alura.screematch_spring.model.Episodio;
 import br.com.alura.screematch_spring.model.Serie;
-import br.com.alura.screematch_spring.repository.SerieRespository;
+import br.com.alura.screematch_spring.repository.SerieRepository;
 import br.com.alura.screematch_spring.service.ConsumoApi;
 import br.com.alura.screematch_spring.service.ConverteDados;
 
@@ -20,11 +20,11 @@ public class Principal {
     private final String API_KEY = "&apikey=6585022c";
     private List<DadosSerie> dadosSeries = new ArrayList<>();
 
-    private SerieRespository repositorio;
+    private SerieRepository repositorio;
 
     private List<Serie> series = new ArrayList<>();
 
-    public Principal(SerieRespository repositorio) {
+    public Principal(SerieRepository repositorio) {
         this.repositorio = repositorio;
     }
 
